@@ -35,7 +35,7 @@ export class BootScene extends Phaser.Scene {
 
         this.tweens.add({
             targets: logo,
-            x: 400,
+            x: 800,
             duration: 500,
             ease: 'Power2',
             yoyo: false,
