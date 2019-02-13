@@ -41,12 +41,12 @@ export class GameScene extends Phaser.Scene {
         this.add.image(1200, 300, 'sky');
 
         //  The platforms group contains the ground and the 2 ledges we can jump on
-        // platforms = this.physics.add.staticGroup();
+        platforms = this.physics.add.staticGroup();
 
         //  Here we create the ground.
         //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
-        // platforms.create(400, 600, 'ground').setScale(2).refreshBody();
-        // platforms.create(1200, 600, 'ground').setScale(2).refreshBody();
+        platforms.create(400, 620, 'ground').setScale(2).refreshBody();
+        platforms.create(1200, 620, 'ground').setScale(2).refreshBody();
 
         //  The platforms group contains the ground and the 2 ledges we can jump on
         movingPlatforms = this.physics.add.staticGroup();
@@ -112,6 +112,7 @@ export class GameScene extends Phaser.Scene {
         this.physics.add.collider(bombs, movingPlatforms);
         // this.physics.add.collider(movingPlatforms, platforms);
 
+        this.physics.add.collider(player, platforms, hitBomb, null, this);
         this.physics.add.collider(player, bombs, hitBomb, null, this);
     }
 
